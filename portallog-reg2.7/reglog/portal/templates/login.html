@@ -1,0 +1,20 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>django portal</title>
+
+
+</head>
+
+<form action={% url 'logging' %}>
+Enter your email address:-
+<input type="text" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" title="Enter valid email id" required><br><br>
+Enter your password:-
+<input type="password" name="passwd" required><br><br>
+<input type="Submit" value="Login">
+
+</form>
+</html>
