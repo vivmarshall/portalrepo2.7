@@ -36,18 +36,15 @@ def register(request):
         )
         password = sha256_crypt.encrypt(upasswd)
         mycursor = mydb.cursor()
-        mycursor.execute("Select email from user where email=%s",[uemail])
-        result = mycursor.fetchall()
-        tup1=result[0]
-        if(tup1[0] == uemail):
-          return HttpResponse('User already exists')
-        else:
-          sql = "INSERT INTO user VALUES (%s, %s, %s, %s)"
-          val = (uname, umobile, uemail, password)
-          mycursor.execute(sql, val)
-
-          mydb.commit()
-          return render(request, 'login.html', context=None)
+        try:
+           sql = "INSERT INTO user VALUES (%s, %s, %s, %s)"
+           val = (uname, umobile, uemail, password)
+           mycursor.execute(sql, val)
+        
+           mydb.commit()
+        except mysql.connector.IntegrityError as err:
+           return HttpResponse('Email already exists')
+        return render(request, 'login.html', context=None)
     else:
         return HttpResponse('Password does not match')
 

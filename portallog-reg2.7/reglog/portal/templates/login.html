@@ -4,17 +4,35 @@
 <head>
   <meta charset="utf-8">
 
-  <title>django portal</title>
-
-
+  <title>Login page</title>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/log.css' %}" >
 </head>
 
 <form action={% url 'logging' %}>
-Enter your email address:-
-<input type="text" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" title="Enter valid email id" required><br><br>
-Enter your password:-
-<input type="password" name="passwd" required><br><br>
+<div class="fixed-header" align="center">
+        Welcome to login page
+    </div>
+    <br>
+    <br>
+    <br>
+        <br>
+    <br>
+    <br>
+<div align="center">
+<div class="div">
+<div class="container">
+Enter your email address
+<input type="text" name="email" placeholder="youremail@example.com" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" class="tb" title="Enter valid email id" required><br><br>
+Enter your password
+<input type="password" name="passwd" placeholder="your password" required><br><br>
 <input type="Submit" value="Login">
+</div>
+</div>
+</div>
+<div class="fixed-footer" align="center">
+        Copyright django portal
+    </div>
 
 </form>
 </html>

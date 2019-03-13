@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/log.css' %}" >
 
   <title>django portal</title>
 <script>
@@ -26,18 +28,38 @@ var redirect = function() {
 </head>
 
 <form action={% url 'register' %}>
-Enter your name:-
-<input type="char" required pattern="[A-Za-z]+" name="name"  title="Only character accepted"><br><br>
-Enter your phone number:-
-<input type="text" pattern="[0-9]{10}" name="mobile" title="Enter 10 digit mobile number" required><br><br>
-Enter your email address:-
-<input type="text" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" name="email" title="Enter valid email id" required ><br><br>
-Enter your password:-
-<input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="passwd" title="Must contain at least one number and one uppercase and lowercaseletter, and at least 8 or more characters" required><br><br>
-Re-Enter yor password:-
-<input type="password" id="confirm_password" name="cpasswd" onkeyup='check();' required>
+<div class="fixed-header" align="center">
+        Welcome to registration page
+    </div>
+ <br>
+    <br>
+    <br>
+      
+<div align="center">
+<div class="div">
+<div class="container">
+
+Enter your name
+<input type="text" required pattern="[A-Za-z]+" name="name" placeholder="name"  title="Only character accepted"><br><br>
+Enter your phone number
+<input type="text" pattern="[0-9]{10}" name="mobile" placeholder="mobile number" title="Enter 10 digit mobile number" required><br><br>
+Enter your email address
+<input type="text" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" placeholder="youremail@example.com" name="email" title="Enter valid email id" required ><br><br>
+Enter new password
+<input type="password" placeholder="new password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="passwd" title="Must contain at least one number and one uppercase and lowercaseletter, and at least 8 or more characters" required><br><br>
+Re-Enter new password
+<input type="password" placeholder="confirm password" id="confirm_password" name="cpasswd" onkeyup='check();' required>
 <span id='message'></span>
 <br><br>
 <input type="submit" value="Register">
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="fixed-footer" align="center">
+        Copyright django portal
+    </div>
 </form>
 </html>
