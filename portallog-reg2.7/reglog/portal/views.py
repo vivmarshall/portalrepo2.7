@@ -27,21 +27,29 @@ def register(request):
     uemail= request.GET.get('email')
     upasswd= request.GET.get('passwd')
     ucpasswd= request.GET.get('cpasswd')
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="dbuser",
-    passwd="Vivmishra3678 @ 8750824959MMLP",
-    database="user_db"
-    )
-    password = sha256_crypt.encrypt(upasswd)
-    mycursor = mydb.cursor()
+    if(upasswd == ucpasswd):
+        mydb = mysql.connector.connect(
+        host="localhost",
+        user="dbuser",
+        passwd="Vivmishra3678 @ 8750824959MMLP",
+        database="user_db"
+        )
+        password = sha256_crypt.encrypt(upasswd)
+        mycursor = mydb.cursor()
+        mycursor.execute("Select email from user where email=%s",[uemail])
+        result = mycursor.fetchall()
+        tup1=result[0]
+        if(tup1[0] == uemail):
+          return HttpResponse('User already exists')
+        else:
+          sql = "INSERT INTO user VALUES (%s, %s, %s, %s)"
+          val = (uname, umobile, uemail, password)
+          mycursor.execute(sql, val)
 
-    sql = "INSERT INTO user VALUES (%s, %s, %s, %s)"
-    val = (uname, umobile, uemail, password)
-    mycursor.execute(sql, val)
-
-    mydb.commit()
-    return render(request, 'login.html', context=None)
+          mydb.commit()
+          return render(request, 'login.html', context=None)
+    else:
+        return HttpResponse('Password does not match')
 
 def logging(request):
    import mysql.connector
@@ -62,7 +70,7 @@ def logging(request):
    if(verify == True):
      return HttpResponse('Welcome user')
    else:
-     return HttpResponse('Incorrect password')
+     return HttpResponse('user does not exists or incorrect password')
 
 
 
