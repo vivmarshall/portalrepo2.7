@@ -79,5 +79,3 @@ def logging(request):
 
 
 
-
-
