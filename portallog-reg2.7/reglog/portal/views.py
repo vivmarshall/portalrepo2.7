@@ -43,10 +43,28 @@ def register(request):
         
            mydb.commit()
         except mysql.connector.IntegrityError as err:
-           return HttpResponse('Email already exists')
+             html = """<html><head><script>
+var redirect = function() {
+  if (confirm("Email already exists")) {
+      window.location.href="http://18.188.166.163:3678/portal/registration/";
+   }
+}
+</script></head><body onLoad="redirect()">
+</body></html>"""
+             return HttpResponse(html)
+ 
         return render(request, 'login.html', context=None)
     else:
-        return HttpResponse('Password does not match')
+        html = """<html><head><script>
+var redirect = function() {
+  if (confirm("Password does not match")) {
+      window.location.href="http://18.188.166.163:3678/portal/registration/";
+   }
+}
+</script></head><body onLoad="redirect()">
+</body></html>"""
+        return HttpResponse(html)
+
 
 def logging(request):
    import mysql.connector
@@ -67,7 +85,15 @@ def logging(request):
    if(verify == True):
      return HttpResponse('Welcome user {}'.format(uemail))
    else:
-     return HttpResponse('user does not exists or incorrect password')
+     html = """<html><head><script>
+var redirect = function() {
+  if (confirm("Incorrect username or password")) {
+      window.location.href="http://18.188.166.163:3678/portal/login/";
+   }
+}
+</script></head><body onLoad="redirect()">
+</body></html>"""
+     return HttpResponse(html)
 
 
 
