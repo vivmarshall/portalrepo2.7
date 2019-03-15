@@ -65,7 +65,7 @@ def logging(request):
    tup1=myresult[0]
    verify = sha256_crypt.verify(upasswd, tup1[0])
    if(verify == True):
-     return HttpResponse('Welcome user')
+     return HttpResponse('Welcome user {}'.format(uemail))
    else:
      return HttpResponse('user does not exists or incorrect password')
 
