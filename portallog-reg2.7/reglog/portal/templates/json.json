@@ -1,0 +1,49 @@
+{
+
+	"apps": [{
+
+		"name": "windows"
+
+	}, {
+
+		"name": "linux"
+
+	}],
+
+	"id": "Action",
+
+	"Site": [{
+
+		"vc": "vcenter1",
+
+		"id": "DCA",
+
+		"ip": "10.213.71.87",
+
+		"vlan": [{
+
+			"name": "vlan1"
+
+		}, {
+
+			"name": "vlan2"
+
+		}]
+
+	}, {
+
+		"vc": "vcenter2",
+
+		"id": "DC3",
+
+		"ip": "10.213.71.90",
+
+		"vlan": [{
+
+			"name": "vlan3"
+
+		}]
+
+	}]
+
+}

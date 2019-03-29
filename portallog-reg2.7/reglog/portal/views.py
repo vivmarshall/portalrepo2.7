@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse 
 from django.views.generic import TemplateView 
-
 # Create your views here.
 class HomePageView(TemplateView): 
      def get(self, request, **kwargs): 
@@ -14,11 +13,18 @@ class login(TemplateView):
           
          return render(request, 'login.html', context=None) 
 
+def load(request):
+     return render(request, 'load.html', context=None)
+
 class reg(TemplateView): 
      def get(self, request, **kwargs): 
           
          return render(request, 'reg.html', context=None)
 
+class jdata(TemplateView): 
+     def get(self, request, **kwargs): 
+          
+         return render(request, 'json.json', context=None)
 def register(request):
     import mysql.connector
     from passlib.hash import sha256_crypt

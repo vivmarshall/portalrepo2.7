@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+{% load staticfiles %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+
+var json = '{"result":true, "count":42}';
+obj = JSON.parse(json);
+
+console.log(obj.count);
+
+console.log(obj.result);
+
+    </script>
+ 
+  <title>Details</title>
+
+</head>
+<form >
+<label>Customer name:-</label>
+<input type="text" id="cust" name="cust"><br><br>
+<label>Site:-</label>
+<select id = "sel">
+</select><br><br>
+<label>Vcenter name:-</label>
+<input type="text" id="vcenter" name="vcenter"><br><br>
+<label>VM IP:-</label>
+<input type="text" id="vip" name="vip"><br><br>
+<label>Vlan name:-</label>
+<select id = "vlan">
+               <option value = "1">Select vlan</option>
+               <option value = "2">vlan1</option>
+               <option value = "2">vlan2</option>
+             </select><br><br>
+<input type="Submit" value="submit">
+</form>
+</html>
