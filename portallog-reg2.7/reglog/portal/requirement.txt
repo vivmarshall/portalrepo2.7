@@ -46,5 +46,5 @@ sepolicy==1.1
 six==1.9.0
 subscription-manager==1.21.10
 urlgrabber==3.10
-urllib3==1.10.2
+urllib3==1.26.5
 yum-metadata-parser==1.1.4
